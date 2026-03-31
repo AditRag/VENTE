@@ -1,14 +1,14 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "./authContext";
 import API from "../utils/api";
 
 const CartContext = createContext();
 
 const cartReducer = (state, action) => {
   switch (action.type) {
-    case "SET_CART":   return action.payload;
+    case "SET_CART": return action.payload;
     case "CLEAR_CART": return [];
-    default:           return state;
+    default: return state;
   }
 };
 
