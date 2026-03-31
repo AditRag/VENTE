@@ -3,8 +3,11 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const path = require("path");
+const connectDB = require("./db/index.js");
 
 dotenv.config({ path: path.join(__dirname, "..", ".env") });
+console.log("MONGO_URI:", process.env.MONGO_URI);
+
 
 const app = express();
 
@@ -20,6 +23,7 @@ app.use(cors({
   origin: allowedOrigins, 
   credentials: true 
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/images", express.static(path.join(__dirname, "images")));
@@ -39,15 +43,19 @@ app.use("/api/orders",   orderRoutes);
 app.get("/", (req, res) => res.json({ message: "ShopCart API is running 🛒" }));
 
 // MongoDB connection
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("✅ MongoDB connected");
-    app.listen(process.env.PORT || 5000, () =>
-      console.log(`🚀 Server running on port ${process.env.PORT || 5000}`)
-    );
-  })
-  .catch((err) => {
-    console.error("❌ MongoDB connection error:", err.message);
-    process.exit(1);
-  });
+
+connectDB()
+.then(()=>{
+
+    app.on("error",(error)=>{
+        console.log("ERRR: ", error);
+        throw error
+    })
+
+    app.listen(process.env.PORT || 5000 ,()=>{
+        console.log(`Server running`)
+    })
+})
+.catch((err)=>{
+    console.log("MongoDB db connection failed !!!")
+})
