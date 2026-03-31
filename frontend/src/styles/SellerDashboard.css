@@ -1,0 +1,232 @@
+/* Seller Dashboard Styles */
+
+.seller-dashboard {
+  display: grid;
+  gap: 2rem;
+}
+
+/* Dashboard Tabs */
+.dashboard-tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.tab-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b7280;
+  transition: all 0.2s ease;
+  margin-bottom: -2px;
+}
+
+.tab-btn:hover {
+  color: #3b82f6;
+}
+
+.tab-btn.active {
+  color: #3b82f6;
+  border-bottom-color: #3b82f6;
+}
+
+/* KPI Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.kpi-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.kpi-card:nth-child(2) {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.2);
+}
+
+.kpi-card:nth-child(2):hover {
+  box-shadow: 0 6px 20px rgba(245, 87, 108, 0.3);
+}
+
+.kpi-card:nth-child(3) {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.2);
+}
+
+.kpi-card:nth-child(3):hover {
+  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.3);
+}
+
+.kpi-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.kpi-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kpi-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.95;
+  margin: 0;
+}
+
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Charts Section */
+.charts-section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.charts-section .profile-card {
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+}
+
+.charts-section .profile-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid #3b82f6;
+  padding-bottom: 1rem;
+}
+
+/* Orders Styling */
+.seller-dashboard .profile-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 1rem;
+}
+
+.seller-dashboard .order-item {
+  background-color: #f9fafb;
+  border-left: 4px solid #3b82f6;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.seller-dashboard .order-item:hover {
+  background-color: #eff6ff;
+  border-left-color: #2563eb;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
+
+.order-item.order-pending {
+  border-left-color: #f59e0b;
+}
+
+.order-item.order-pending:hover {
+  background-color: #fffbeb;
+  border-left-color: #d97706;
+}
+
+.order-item.order-return {
+  border-left-color: #ef4444;
+}
+
+.order-item.order-return:hover {
+  background-color: #fef2f2;
+  border-left-color: #dc2626;
+}
+
+.seller-dashboard .order-item p {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+.seller-dashboard .order-item strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Badge Warning */
+.badge-warning {
+  background-color: #f59e0b !important;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .kpi-card {
+    padding: 1.25rem;
+  }
+
+  .kpi-value {
+    font-size: 1.5rem;
+  }
+
+  .seller-dashboard .profile-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .seller-dashboard .order-item {
+    padding: 0.75rem;
+  }
+
+  .seller-dashboard .order-item p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .kpi-card {
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .kpi-icon {
+    font-size: 2rem;
+  }
+
+  .kpi-label {
+    font-size: 0.8rem;
+  }
+
+  .kpi-value {
+    font-size: 1.25rem;
+  }
+}
