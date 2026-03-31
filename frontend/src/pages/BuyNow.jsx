@@ -1,28 +1,28 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/cartContext.jsx";
+import { useAuth } from "../context/authContext.jsx";
 import API from "../utils/api";
 
 export default function BuyNow() {
   const { cart, cartTotal } = useCart();
-  const { user }            = useAuth();
-  const navigate            = useNavigate();
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    street:        user?.address?.street  || "",
-    city:          user?.address?.city    || "",
-    state:         user?.address?.state   || "",
-    zip:           user?.address?.zip     || "",
-    country:       user?.address?.country || "India",
+    street: user?.address?.street || "",
+    city: user?.address?.city || "",
+    state: user?.address?.state || "",
+    zip: user?.address?.zip || "",
+    country: user?.address?.country || "India",
     paymentMethod: "COD",
   });
   const [loading, setLoading] = useState(false);
-  const [error, setError]     = useState("");
+  const [error, setError] = useState("");
 
   const shipping = cartTotal > 500 ? 0 : 49;
-  const tax      = Math.round(cartTotal * 0.05);
-  const total    = cartTotal + shipping + tax;
+  const tax = Math.round(cartTotal * 0.05);
+  const total = cartTotal + shipping + tax;
 
   const handleChange = (e) =>
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -33,19 +33,19 @@ export default function BuyNow() {
     setLoading(true);
     try {
       const items = cart.map((i) => ({
-        product:  i.product._id,
-        title:    i.product.title,
-        image:    i.product.images?.[0] || "",
-        price:    i.product.discountPrice || i.product.price,
+        product: i.product._id,
+        title: i.product.title,
+        image: i.product.images?.[0] || "",
+        price: i.product.discountPrice || i.product.price,
         quantity: i.quantity,
       }));
       await API.post("/orders", {
         items,
         shippingAddress: { street: form.street, city: form.city, state: form.state, zip: form.zip, country: form.country },
         paymentMethod: form.paymentMethod,
-        totalPrice:    total,
+        totalPrice: total,
         shippingPrice: shipping,
-        taxPrice:      tax,
+        taxPrice: tax,
       });
       navigate("/", { state: { orderPlaced: true } });
     } catch (err) {
@@ -64,10 +64,10 @@ export default function BuyNow() {
         <div className="checkout-form">
           <h3>Shipping Address</h3>
           {[
-            { name: "street",  placeholder: "Street address" },
-            { name: "city",    placeholder: "City" },
-            { name: "state",   placeholder: "State" },
-            { name: "zip",     placeholder: "ZIP / PIN code" },
+            { name: "street", placeholder: "Street address" },
+            { name: "city", placeholder: "City" },
+            { name: "state", placeholder: "State" },
+            { name: "zip", placeholder: "ZIP / PIN code" },
             { name: "country", placeholder: "Country" },
           ].map(({ name, placeholder }) => (
             <input

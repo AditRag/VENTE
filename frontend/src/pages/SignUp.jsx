@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/authContext.jsx";
 
 export default function SignUp() {
   const { register } = useAuth();
-  const navigate     = useNavigate();
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     name: "", email: "", password: "", confirmPassword: "",
     role: "buyer", storeName: "",
   });
-  const [error, setError]     = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) =>

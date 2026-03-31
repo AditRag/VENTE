@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import API from "../utils/api";
-import { useCart } from "../context/CartContext";
-import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/cartContext.jsx";
+import { useAuth } from "../context/authContext.jsx";
 
 export default function CurrentProduct() {
-  const { id }                      = useParams();
-  const navigate                    = useNavigate();
-  const { user }                    = useAuth();
-  const { addToCart }               = useCart();
-  const [product, setProduct]       = useState(null);
-  const [loading, setLoading]       = useState(true);
-  const [activeImg, setActiveImg]   = useState(0);
-  const [quantity, setQuantity]     = useState(1);
-  const [message, setMessage]       = useState("");
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const { addToCart } = useCart();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [activeImg, setActiveImg] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     API.get(`/products/${id}`)
@@ -42,7 +42,7 @@ export default function CurrentProduct() {
   if (!product) return null;
 
   const displayPrice = product.discountPrice || product.price;
-  const hasDiscount  = product.discountPrice && product.discountPrice < product.price;
+  const hasDiscount = product.discountPrice && product.discountPrice < product.price;
 
   return (
     <main className="container">

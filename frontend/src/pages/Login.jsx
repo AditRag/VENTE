@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/authContext.jsx";
 
 export default function Login() {
-  const { login }    = useAuth();
-  const navigate     = useNavigate();
-  const location     = useLocation();
-  const redirect     = location.state?.from || "/";
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const redirect = location.state?.from || "/";
 
-  const [form, setForm]     = useState({ email: "", password: "" });
-  const [error, setError]   = useState("");
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) =>

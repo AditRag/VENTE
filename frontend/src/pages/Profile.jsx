@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/authContext";
 import API from "../utils/api";
 import SellerDashboard from "../components/SellerDashboard";
 import AddressPaymentSettings from "../components/AddressPaymentSettings";
