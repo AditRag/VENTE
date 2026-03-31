@@ -1,13 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
-import { useCart } from "../context/cartContext";
+import { useAuth } from "../context/authContext.jsx";
+import { useCart } from "../context/cartContext.jsx";
 import { useState } from "react";
 
 export default function Navbar() {
-  const { user, logout }   = useAuth();
-  const { cartCount }      = useCart();
-  const navigate           = useNavigate();
-  const [query, setQuery]  = useState("");
+  const { user, logout } = useAuth();
+  const { cartCount } = useCart();
+  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ export default function Navbar() {
             <Link to="/cart" className="nav-link cart-link">
               Cart {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
             </Link>
-            <button 
+            <button
               onClick={() => navigate("/profile")}
               className="btn-ghost"
               style={{ cursor: "pointer", padding: "0.5rem 1rem", borderRadius: "0.375rem" }}
@@ -48,7 +48,7 @@ export default function Navbar() {
           </>
         ) : (
           <>
-            <Link to="/login"  className="nav-link">Login</Link>
+            <Link to="/login" className="nav-link">Login</Link>
             <Link to="/signup" className="btn-primary">Sign Up</Link>
           </>
         )}

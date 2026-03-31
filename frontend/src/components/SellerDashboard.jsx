@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import API from "../utils/api";
-import MyProducts from "./MyProducts";
+import API from "../utils/api.js";
+import MyProducts from "./MyProducts.jsx";
 import {
   LineChart,
   Line,
@@ -51,7 +51,7 @@ export default function SellerDashboard() {
     } catch (err) {
       setError(
         err.response?.data?.message ||
-          "Failed to fetch dashboard data. Please refresh."
+        "Failed to fetch dashboard data. Please refresh."
       );
       console.error("Dashboard fetch error:", err);
     } finally {
@@ -137,118 +137,118 @@ export default function SellerDashboard() {
               <h3>Orders Trend</h3>
               {dashboardData.chartData && dashboardData.chartData.length > 0 ? (
                 <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={dashboardData.chartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line
-                  type="monotone"
-                  dataKey="orders"
-                  stroke="#3b82f6"
-                  strokeWidth={2}
-                  name="Orders"
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          ) : (
-            <p className="text-muted">No chart data available</p>
-          )}
-        </div>
-      </div>
-
-      {/* Today's Orders */}
-      <div className="profile-card">
-        <h3>Orders Received Today</h3>
-        {orderDetails.today.length > 0 ? (
-          <div className="orders-list">
-            {orderDetails.today.map((order) => (
-              <div key={order._id} className="order-item">
-                <p>
-                  <strong>Order ID:</strong> {order.orderId}
-                </p>
-                <p>
-                  <strong>Buyer:</strong> {order.buyer?.name || "Unknown"}
-                </p>
-                <p>
-                  <strong>Amount:</strong> ₹{order.totalPrice}
-                </p>
-                <p>
-                  <strong>Status:</strong>{" "}
-                  <span className="badge badge-info">{order.orderStatus}</span>
-                </p>
-              </div>
-            ))}
+                  <LineChart data={dashboardData.chartData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="date" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line
+                      type="monotone"
+                      dataKey="orders"
+                      stroke="#3b82f6"
+                      strokeWidth={2}
+                      name="Orders"
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              ) : (
+                <p className="text-muted">No chart data available</p>
+              )}
+            </div>
           </div>
-        ) : (
-          <p className="text-muted">No orders received today</p>
-        )}
-      </div>
 
-      {/* Pending Orders */}
-      <div className="profile-card">
-        <h3>Pending Orders</h3>
-        {orderDetails.pending.length > 0 ? (
-          <div className="orders-list">
-            {orderDetails.pending.map((order) => (
-              <div key={order._id} className="order-item order-pending">
-                <p>
-                  <strong>Order ID:</strong> {order.orderId}
-                </p>
-                <p>
-                  <strong>Buyer:</strong> {order.buyer?.name || "Unknown"}
-                </p>
-                <p>
-                  <strong>Items:</strong> {order.items?.length || 0}
-                </p>
-                <p>
-                  <strong>Amount:</strong> ₹{order.totalPrice}
-                </p>
-                <p>
-                  <strong>Order Date:</strong>{" "}
-                  {new Date(order.createdAt).toLocaleDateString()}
-                </p>
+          {/* Today's Orders */}
+          <div className="profile-card">
+            <h3>Orders Received Today</h3>
+            {orderDetails.today.length > 0 ? (
+              <div className="orders-list">
+                {orderDetails.today.map((order) => (
+                  <div key={order._id} className="order-item">
+                    <p>
+                      <strong>Order ID:</strong> {order.orderId}
+                    </p>
+                    <p>
+                      <strong>Buyer:</strong> {order.buyer?.name || "Unknown"}
+                    </p>
+                    <p>
+                      <strong>Amount:</strong> ₹{order.totalPrice}
+                    </p>
+                    <p>
+                      <strong>Status:</strong>{" "}
+                      <span className="badge badge-info">{order.orderStatus}</span>
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              <p className="text-muted">No orders received today</p>
+            )}
           </div>
-        ) : (
-          <p className="text-muted">No pending orders</p>
-        )}
-      </div>
 
-      {/* Returns */}
-      <div className="profile-card">
-        <h3>Return Requests</h3>
-        {orderDetails.returns.length > 0 ? (
-          <div className="orders-list">
-            {orderDetails.returns.map((order) => (
-              <div key={order._id} className="order-item order-return">
-                <p>
-                  <strong>Order ID:</strong> {order.orderId}
-                </p>
-                <p>
-                  <strong>Buyer:</strong> {order.buyer?.name || "Unknown"}
-                </p>
-                <p>
-                  <strong>Return Status:</strong>{" "}
-                  <span className="badge badge-warning">
-                    {order.returnStatus}
-                  </span>
-                </p>
-                <p>
-                  <strong>Reason:</strong> {order.returnReason || "No reason provided"}
-                </p>
-                <p>
-                  <strong>Amount:</strong> ₹{order.totalPrice}
-                </p>
+          {/* Pending Orders */}
+          <div className="profile-card">
+            <h3>Pending Orders</h3>
+            {orderDetails.pending.length > 0 ? (
+              <div className="orders-list">
+                {orderDetails.pending.map((order) => (
+                  <div key={order._id} className="order-item order-pending">
+                    <p>
+                      <strong>Order ID:</strong> {order.orderId}
+                    </p>
+                    <p>
+                      <strong>Buyer:</strong> {order.buyer?.name || "Unknown"}
+                    </p>
+                    <p>
+                      <strong>Items:</strong> {order.items?.length || 0}
+                    </p>
+                    <p>
+                      <strong>Amount:</strong> ₹{order.totalPrice}
+                    </p>
+                    <p>
+                      <strong>Order Date:</strong>{" "}
+                      {new Date(order.createdAt).toLocaleDateString()}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              <p className="text-muted">No pending orders</p>
+            )}
           </div>
-        ) : (
-          <p className="text-muted">No return requests</p>
-        )}
-      </div>
+
+          {/* Returns */}
+          <div className="profile-card">
+            <h3>Return Requests</h3>
+            {orderDetails.returns.length > 0 ? (
+              <div className="orders-list">
+                {orderDetails.returns.map((order) => (
+                  <div key={order._id} className="order-item order-return">
+                    <p>
+                      <strong>Order ID:</strong> {order.orderId}
+                    </p>
+                    <p>
+                      <strong>Buyer:</strong> {order.buyer?.name || "Unknown"}
+                    </p>
+                    <p>
+                      <strong>Return Status:</strong>{" "}
+                      <span className="badge badge-warning">
+                        {order.returnStatus}
+                      </span>
+                    </p>
+                    <p>
+                      <strong>Reason:</strong> {order.returnReason || "No reason provided"}
+                    </p>
+                    <p>
+                      <strong>Amount:</strong> ₹{order.totalPrice}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-muted">No return requests</p>
+            )}
+          </div>
         </>
       )}
 

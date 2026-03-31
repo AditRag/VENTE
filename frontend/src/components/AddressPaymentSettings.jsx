@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "../context/authContext";
-import API from "../utils/api";
+import { useAuth } from "../context/authContext.jsx";
+import API from "../utils/api.js";
 import "../styles/AddressPaymentSettings.css";
 
 export default function AddressPaymentSettings({ section }) {
@@ -134,9 +134,9 @@ export default function AddressPaymentSettings({ section }) {
           {!isEditing ? (
             <div className="address-display">
               {address.street ||
-              address.city ||
-              address.state ||
-              address.pinCode ? (
+                address.city ||
+                address.state ||
+                address.pinCode ? (
                 <p>
                   {address.street && <span>{address.street}, </span>}
                   {address.city && <span>{address.city}, </span>}

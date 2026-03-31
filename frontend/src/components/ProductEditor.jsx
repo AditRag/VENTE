@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import API from "../utils/api";
+import API from "../utils/api.js";
 import "../styles/ProductEditor.css";
 
 export default function ProductEditor({ productId, onClose, onProductUpdated }) {
@@ -221,7 +221,7 @@ export default function ProductEditor({ productId, onClose, onProductUpdated }) 
                 <strong>
                   {Math.round(
                     ((formData.price - formData.discountPrice) / formData.price) *
-                      100
+                    100
                   )}
                   %
                 </strong>

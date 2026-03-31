@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../context/cartContext";
-import { useAuth } from "../context/authContext";
+import { useCart } from "../context/cartContext.jsx";
+import { useAuth } from "../context/authContext.jsx";
 import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({ product }) {
-  const { addToCart }  = useCart();
-  const { user }       = useAuth();
-  const navigate       = useNavigate();
-  const displayPrice   = product.discountPrice || product.price;
-  const hasDiscount    = product.discountPrice && product.discountPrice < product.price;
+  const { addToCart } = useCart();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const displayPrice = product.discountPrice || product.price;
+  const hasDiscount = product.discountPrice && product.discountPrice < product.price;
 
   const handleAdd = async (e) => {
     e.preventDefault();

@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar.jsx";
-import Home from "./pages/Home";
-import Search from "./pages/Search";
-import CurrentProduct from "./pages/CurrentProduct";
-import Cart from "./pages/Cart";
-import BuyNow from "./pages/BuyNow";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import Profile from "./pages/Profile";
-import ProtectedRoute from "./components/protectedRoute";
+import Home from "./pages/Home.jsx";
+import Search from "./pages/Search.jsx";
+import CurrentProduct from "./pages/CurrentProduct.jsx";
+import Cart from "./pages/Cart.jsx";
+import BuyNow from "./pages/BuyNow.jsx";
+import Login from "./pages/Login.jsx";
+import SignUp from "./pages/SignUp.jsx";
+import Profile from "./pages/Profile.jsx";
+import ProtectedRoute from "./components/protectedRoute.jsx";
 
 export default function App() {
   return (

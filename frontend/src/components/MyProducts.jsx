@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import API from "../utils/api";
-import ProductEditor from "./ProductEditor";
+import API from "../utils/api.js";
+import ProductEditor from "./ProductEditor.jsx";
 import "../styles/MyProducts.css";
 
 export default function MyProducts() {
@@ -106,7 +106,7 @@ export default function MyProducts() {
                           {Math.round(
                             ((product.price - product.discountPrice) /
                               product.price) *
-                              100
+                            100
                           )}
                           % OFF
                         </span>
@@ -116,9 +116,8 @@ export default function MyProducts() {
 
                   <div className="stock-section">
                     <span
-                      className={`stock-badge ${
-                        product.stock > 0 ? "in-stock" : "out-of-stock"
-                      }`}
+                      className={`stock-badge ${product.stock > 0 ? "in-stock" : "out-of-stock"
+                        }`}
                     >
                       Stock: {product.stock}
                     </span>

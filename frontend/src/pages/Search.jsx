@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import API from "../utils/api";
-import ProductCard from "../components/ProductCard";
+import API from "../utils/api.js";
+import ProductCard from "../components/productCard.jsx";
 
 const CATEGORIES = ["", "Lights", "Wires", "Cables", "Switch", "Plates", "Heaters", "Fans", "Geysers"];
 const SORT_OPTIONS = [
-  { label: "Newest",          value: "-createdAt" },
+  { label: "Newest", value: "-createdAt" },
   { label: "Price: Low–High", value: "price" },
   { label: "Price: High–Low", value: "-price" },
-  { label: "Top Rated",       value: "-ratings" },
+  { label: "Top Rated", value: "-ratings" },
 ];
 
 export default function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [products, setProducts]         = useState([]);
-  const [total, setTotal]               = useState(0);
-  const [page, setPage]                 = useState(1);
-  const [pages, setPages]               = useState(1);
-  const [loading, setLoading]           = useState(false);
+  const [products, setProducts] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [pages, setPages] = useState(1);
+  const [loading, setLoading] = useState(false);
 
-  const query    = searchParams.get("search")   || "";
+  const query = searchParams.get("search") || "";
   const category = searchParams.get("category") || "";
-  const sort     = searchParams.get("sort")     || "-createdAt";
+  const sort = searchParams.get("sort") || "-createdAt";
 
   useEffect(() => {
     setLoading(true);

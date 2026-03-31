@@ -1,9 +1,9 @@
 
 import { useState, useEffect } from "react";
-import { useAuth } from "../context/authContext";
-import API from "../utils/api";
-import SellerDashboard from "../components/SellerDashboard";
-import AddressPaymentSettings from "../components/AddressPaymentSettings";
+import { useAuth } from "../context/authContext.jsx";
+import API from "../utils/api.js";
+import SellerDashboard from "../components/SellerDashboard.jsx";
+import AddressPaymentSettings from "../components/AddressPaymentSettings.jsx";
 import "../styles/Profile.css";
 
 export default function Profile() {

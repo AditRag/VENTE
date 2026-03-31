@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import API from "../utils/api";
+import API from "../utils/api.js";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [user, setUser]       = useState(null);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   // Restore session on mount

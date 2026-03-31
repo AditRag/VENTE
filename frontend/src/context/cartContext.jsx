@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { useAuth } from "./authContext";
-import API from "../utils/api";
+import { useAuth } from "./authContext.jsx";
+import API from "../utils/api.js";
 
 const CartContext = createContext();
 

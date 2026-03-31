@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cartContext.jsx";
 import { useAuth } from "../context/authContext.jsx";
-import API from "../utils/api";
+import API from "../utils/api.js";
 
 export default function BuyNow() {
   const { cart, cartTotal } = useCart();

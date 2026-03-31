@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import API from "../utils/api";
-import ProductCard from "../components/ProductCard";
+import API from "../utils/api.js";
+import ProductCard from "../components/productCard.jsx";
 
 const CATEGORIES = ["Lights", "Wires", "Cables", "Switch", "Plates", "Heaters", "Fans", "Geysers"];
 
 export default function Home() {
-  const [featured, setFeatured]   = useState([]);
-  const [products, setProducts]   = useState([]);
-  const [selected, setSelected]   = useState("");
-  const [loading, setLoading]     = useState(true);
+  const [featured, setFeatured] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [selected, setSelected] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     API.get("/products?limit=8&sort=-createdAt").then((res) => {
