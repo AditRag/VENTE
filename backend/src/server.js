@@ -4,6 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const path = require("path");
 const connectDB = require("./db/index.js");
+const { errorHandler } = require("./middleware/error.middleware");
 
 dotenv.config({ path: path.join(__dirname, "..", ".env") });
 console.log("MONGO_URI:", process.env.MONGO_URI);
@@ -45,6 +46,9 @@ app.use("/api/auth",     authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart",     cartRoutes);
 app.use("/api/orders",   orderRoutes);
+
+// Error handling middleware
+app.use(errorHandler);
 
 // Health check
 app.get("/", (req, res) => res.json({ message: "ShopCart API is running 🛒" }));
