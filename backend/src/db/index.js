@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const dns = require("dns");
-const { DB_NAME } = require("../constants.js");
+const DB_NAME = require("../constants.js");
 
 // Workaround for Indian ISPs like Jio blocking SRV queries over TCP (port 53)
 dns.setServers(["8.8.8.8", "8.8.4.4", "1.1.1.1"]);
@@ -12,7 +12,8 @@ const connectDB = async () => {
         }
 
         const connectionInstance = await mongoose.connect(
-            `${process.env.MONGO_URI}/${DB_NAME}`
+            process.env.MONGO_URI,
+            { dbName: DB_NAME }
         );
 
         console.log(`MongoDB connected !! HOST: ${connectionInstance.connection.host}`);
