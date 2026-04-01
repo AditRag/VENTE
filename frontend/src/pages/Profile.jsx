@@ -4,6 +4,7 @@ import { useAuth } from "../context/authContext.jsx";
 import API from "../utils/api.js";
 import SellerDashboard from "../components/SellerDashboard.jsx";
 import AddressPaymentSettings from "../components/AddressPaymentSettings.jsx";
+import AddProduct from "../components/AddProduct.jsx";
 import "../styles/Profile.css";
 
 export default function Profile() {
@@ -140,14 +141,25 @@ export default function Profile() {
           </button>
 
           {user.role === "seller" && (
-            <button
-              className={`circular-btn ${activeSection === "dashboard" ? "active" : ""}`}
-              onClick={() => setActiveSection("dashboard")}
-              title="Seller Dashboard"
-            >
-              <span className="icon">📊</span>
-              <span className="label">Dashboard</span>
-            </button>
+            <>
+              <button
+                className={`circular-btn ${activeSection === "dashboard" ? "active" : ""}`}
+                onClick={() => setActiveSection("dashboard")}
+                title="Seller Dashboard"
+              >
+                <span className="icon">📊</span>
+                <span className="label">Dashboard</span>
+              </button>
+              
+              <button
+                className={`circular-btn ${activeSection === "add-product" ? "active" : ""}`}
+                onClick={() => setActiveSection("add-product")}
+                title="Add Product"
+              >
+                <span className="icon">➕</span>
+                <span className="label">Add Product</span>
+              </button>
+            </>
           )}
 
           {user.role === "buyer" && (
@@ -254,6 +266,11 @@ export default function Profile() {
           {/* Seller Dashboard Section */}
           {activeSection === "dashboard" && user.role === "seller" && (
             <SellerDashboard />
+          )}
+
+          {/* Add Product Section */}
+          {activeSection === "add-product" && user.role === "seller" && (
+            <AddProduct />
           )}
 
           {activeSection === "received" && user.role === "buyer" && (
