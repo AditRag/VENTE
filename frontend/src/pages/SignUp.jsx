@@ -70,7 +70,7 @@ export default function SignUp() {
         <form onSubmit={handleSubmit} className="auth-form">
           <label>Full Name</label>
           <input name="name" value={form.name} onChange={handleChange}
-            placeholder="John Doe" required className="form-input" />
+            placeholder="Jai Shree Ram" required className="form-input" />
 
           <label>Email</label>
           <input type="email" name="email" value={form.email} onChange={handleChange}
