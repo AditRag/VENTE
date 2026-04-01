@@ -13,14 +13,11 @@ const app = express();
 
 // Middlewares
 const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  "http://localhost:5175",
   process.env.CLIENT_URL
 ].filter(Boolean);
 
 app.use(cors({
-  origin: 'https://vente-v1-2esjezb3j-aditrags-projects.vercel.app',
+  origin: process.env.CLIENT_URL,
   methods: ['GET', 'POST', 'PUT','DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
