@@ -1,0 +1,3 @@
+Registering test1775042602927@example.com
+Fetching /api/cart
+Cart Auth: 200 []

@@ -1,0 +1,20 @@
+Registering test1775042529133@example.com
+Fetching /api/auth/me
+Me Auth: 200 {
+  user: {
+    address: { street: '', city: '', state: '', pinCode: '', country: '' },
+    _id: '69ccffe2ed6d85a27ddebcac',
+    name: 'Test User',
+    email: 'test1775042529133@example.com',
+    role: 'buyer',
+    storeName: '',
+    storeDescription: '',
+    avatar: '',
+    isVerified: false,
+    paymentMethods: [],
+    cart: [],
+    createdAt: '2026-04-01T11:22:10.148Z',
+    updatedAt: '2026-04-01T11:22:10.148Z',
+    __v: 0
+  }
+}

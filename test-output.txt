@@ -1,0 +1,20 @@
+Registering test1775042429284@example.com
+Register Auth: 201 {
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2NmZjdlZWQ2ZDg1YTI3ZGRlYmNhOCIsImlhdCI6MTc3NTA0MjQzMywiZXhwIjoxNzc1NjQ3MjMzfQ.hjnwAFeXOkfiot4ras1hnPyOl1iPaj9_NsxvLE5dpdU',
+  user: {
+    _id: '69ccff7eed6d85a27ddebca8',
+    name: 'Test User',
+    email: 'test1775042429284@example.com',
+    role: 'buyer'
+  }
+}
+Logging in...
+Login Auth: 200 {
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2NmZjdlZWQ2ZDg1YTI3ZGRlYmNhOCIsImlhdCI6MTc3NTA0MjQzNSwiZXhwIjoxNzc1NjQ3MjM1fQ.oI15y72UUQkEngdMDLqJ65DPqQEsEgobWbKPSzc1QBs',
+  user: {
+    _id: '69ccff7eed6d85a27ddebca8',
+    name: 'Test User',
+    email: 'test1775042429284@example.com',
+    role: 'buyer'
+  }
+}
