@@ -16,6 +16,7 @@ const app = express();
 const allowedOrigins = [
   'https://vente-frontend.onrender.com',
   'https://vente-v1-2esjezb3j-aditrags-projects.vercel.app',
+  'http://localhost:5173',
   process.env.CLIENT_URL
 ].filter(Boolean);
 
