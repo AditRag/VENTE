@@ -17,7 +17,7 @@ const allowedOrigins = [
 ].filter(Boolean);
 
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: 'https://vente-v1-2esjezb3j-aditrags-projects.vercel.app',
   methods: ['GET', 'POST', 'PUT','DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
