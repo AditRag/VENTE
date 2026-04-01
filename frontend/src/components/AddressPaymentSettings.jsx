@@ -44,7 +44,7 @@ export default function AddressPaymentSettings({ section }) {
     setMessage("");
 
     try {
-      const res = await API.put("/auth/update-address", address);
+      const res = await API.put("/api/auth/update-address", address);
       setMessage("Address updated successfully!");
       updateUser(res.data.user);
       setIsEditing(false);
@@ -68,7 +68,7 @@ export default function AddressPaymentSettings({ section }) {
     setMessage("");
 
     try {
-      const res = await API.post("/auth/payment-method", paymentForm);
+      const res = await API.post("/api/auth/payment-method", paymentForm);
       setMessage("Payment method added successfully!");
       updateUser(res.data.user);
       setPaymentForm({

@@ -11,21 +11,21 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) { setLoading(false); return; }
-    API.get("/auth/me")
+    API.get("/api/auth/me")
       .then((res) => setUser(res.data.user))
       .catch(() => localStorage.removeItem("token"))
       .finally(() => setLoading(false));
   }, []);
 
   const login = async (email, password) => {
-    const res = await API.post("/auth/login", { email, password });
+    const res = await API.post("/api/auth/login", { email, password });
     localStorage.setItem("token", res.data.token);
     setUser(res.data.user);
     return res.data.user;
   };
 
   const register = async (data) => {
-    const res = await API.post("/auth/register", data);
+    const res = await API.post("/api/auth/register", data);
     localStorage.setItem("token", res.data.token);
     setUser(res.data.user);
     return res.data.user;

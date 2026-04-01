@@ -26,7 +26,7 @@ export default function Search() {
   useEffect(() => {
     setLoading(true);
     const params = new URLSearchParams({ search: query, category, sort, page, limit: 12 });
-    API.get(`/products?${params}`)
+    API.get(`/api/products?${params}`)
       .then((res) => {
         setProducts(res.data.products);
         setTotal(res.data.total);

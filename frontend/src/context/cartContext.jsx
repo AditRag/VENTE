@@ -19,14 +19,14 @@ export function CartProvider({ children }) {
   // Sync cart from server when user logs in
   useEffect(() => {
     if (user) {
-      API.get("/cart").then((res) => dispatch({ type: "SET_CART", payload: res.data }));
+      API.get("/api/cart").then((res) => dispatch({ type: "SET_CART", payload: res.data }));
     } else {
       dispatch({ type: "CLEAR_CART" });
     }
   }, [user]);
 
   const addToCart = async (productId, quantity = 1) => {
-    const res = await API.post("/cart", { productId, quantity });
+    const res = await API.post("/api/cart", { productId, quantity });
     dispatch({ type: "SET_CART", payload: res.data });
   };
 

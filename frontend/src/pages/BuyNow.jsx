@@ -39,7 +39,7 @@ export default function BuyNow() {
         price: i.product.discountPrice || i.product.price,
         quantity: i.quantity,
       }));
-      await API.post("/orders", {
+      await API.post("/api/orders", {
         items,
         shippingAddress: { street: form.street, city: form.city, state: form.state, zip: form.zip, country: form.country },
         paymentMethod: form.paymentMethod,

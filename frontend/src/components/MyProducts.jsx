@@ -19,7 +19,7 @@ export default function MyProducts() {
     setError("");
     try {
       // Fetch all products (in real app, you'd have a dedicated endpoint for seller's products)
-      const res = await API.get("/products?limit=100");
+      const res = await API.get("/api/products?limit=100");
       setProducts(res.data.products || []);
     } catch (err) {
       setError(err.response?.data?.message || "Failed to fetch products");

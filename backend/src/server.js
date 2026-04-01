@@ -13,13 +13,22 @@ const app = express();
 
 // Middlewares
 const allowedOrigins = [
+  'https://vente-frontend.onrender.com',
+  'https://vente-v1-2esjezb3j-aditrags-projects.vercel.app',
   process.env.CLIENT_URL
 ].filter(Boolean);
 
 app.use(cors({
-  origin: 'https://vente-v1-2esjezb3j-aditrags-projects.vercel.app',
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT','DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 app.use(express.json());

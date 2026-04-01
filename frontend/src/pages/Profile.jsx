@@ -34,7 +34,7 @@ export default function Profile() {
   const fetchOrders = async () => {
     setOrdersLoading(true);
     try {
-      const res = await API.get("/orders");
+      const res = await API.get("/api/orders");
       setOrders(res.data.orders || []);
     } catch (err) {
       console.error("Failed to fetch orders:", err);
@@ -54,7 +54,7 @@ export default function Profile() {
 
     setLoading(true);
     try {
-      const res = await API.put("/auth/become-seller", {
+      const res = await API.put("/api/auth/become-seller", {
         storeName: storeName.trim(),
         storeDescription: storeDescription.trim()
       });

@@ -39,7 +39,7 @@ export default function SellerDashboard() {
     setLoading(true);
     setError("");
     try {
-      const res = await API.get("/orders/seller/dashboard");
+      const res = await API.get("/api/orders/seller/dashboard");
       if (res.data) {
         setDashboardData(res.data);
         setOrderDetails({

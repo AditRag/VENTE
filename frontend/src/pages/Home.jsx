@@ -12,11 +12,11 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    API.get("/products?limit=8&sort=-createdAt").then((res) => {
+    API.get("/api/products?limit=8&sort=-createdAt").then((res) => {
       setProducts(res.data.products);
       setLoading(false);
     });
-    API.get("/products?isFeatured=true&limit=4").then((res) =>
+    API.get("/api/products?isFeatured=true&limit=4").then((res) =>
       setFeatured(res.data.products)
     );
   }, []);
