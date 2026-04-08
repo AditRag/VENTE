@@ -1,0 +1,4 @@
+Add features to change discount on one company's product according to the total amount of those companys products in the cart 
+if wires bought of 210000 then change discount from 43% to 44% based on the current price list 
+Show MRP AND THE C_PRICE_LIST of the product 
+And also the selling price of the product 
