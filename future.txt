@@ -2,3 +2,5 @@ Add features to change discount on one company's product according to the total 
 if wires bought of 210000 then change discount from 43% to 44% based on the current price list 
 Show MRP AND THE C_PRICE_LIST of the product 
 And also the selling price of the product 
+
+ Accelerated product discovery through a dynamic search and filter system, reducing time-to-purchase and improving conversion potential for large-scale electrical procurement.
